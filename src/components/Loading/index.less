@@ -1,0 +1,107 @@
+.loading-box{
+  position: fixed;
+  z-index: 99;
+  width:100%;
+  height: 100%;
+  display: flex;
+  background: #ffffff;
+  // flex-direction: column;
+  // align-items: center;
+  justify-content: center;
+  .bg{
+    position: absolute;
+    left:0;
+    top:0;
+    width : 100%;
+    height :100%;
+  }
+  .message{
+    position: relative;
+    box-sizing: border-box;
+    top: 150px;
+    margin:10px;
+    width: 100%;
+    height:300px;
+    font-size: 30px;
+    .message1{
+      position: absolute;
+      top:10px;
+      left:120px;
+      animation: op 1.4s infinite alternate;
+      text-align: center;
+      font-size: 25px;
+    }
+    .message2{
+      position: absolute;
+      top:40px;
+      right:100px;
+      animation: opq 3s infinite alternate;
+      text-align: center;
+      font-size: 28px;
+    }
+    .message3{
+      position: absolute;
+      top:80px;
+      left:60px;
+      animation: op 2.5s infinite alternate;
+      font-size: 32px;
+    }
+    .message4{
+      position: absolute;
+      top:120px;
+      right:0px;
+      animation: opq 2.9s infinite alternate;
+      font-size: 45px;
+    }
+    .message5{
+      position: absolute;
+      top:160px;
+      left:20px;
+      animation: op 1.7s infinite alternate;
+      font-size: 35px;
+    }
+    .message6{
+      position: absolute;
+      top:190px;
+      right:250px;
+      animation: op 1.5s infinite alternate;
+      font-size: 25px;
+    }
+    .message7{
+      position: absolute;
+      top:230px;
+      right:70px;
+      animation: opq 2.1s infinite alternate;
+      font-size: 32px;
+    }
+    .message8{
+      position: absolute;
+      top:280px;
+      left:100px;
+      animation: op 1.9s infinite alternate;
+    }
+    .message9{
+      position: absolute;
+      top:320px;
+      right:150px;
+      animation: op 1.2s infinite alternate;
+      font-size: 22px;
+    }
+  }
+  .bottom-desc{
+    text-align: center;
+    position: absolute;
+    z-index: 99;
+    bottom: 170px;
+    font-size: 25px;
+    color: #656b6f;
+  }
+}
+@keyframes op{
+  from{opacity: 1;}
+  to{opacity: 0;}
+  }
+@keyframes opq{
+  from{opacity: 0;}
+  to{opacity: 1;}
+  }
