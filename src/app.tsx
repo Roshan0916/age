@@ -21,18 +21,15 @@ class App extends Component {
   config: Config = {
     pages: [
       // 'pages/text/index',//保存海报
-     
+
       'pages/shouquan/index',
-      'pages/home/index',
 
-     
-
-      'pages/top/index',//上拉加载
-      
       'pages/index/index',
-
-     
+      
+      'pages/home/index',
       'pages/result/index',
+     
+      
 
        
 

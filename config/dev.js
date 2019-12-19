@@ -3,7 +3,7 @@ module.exports = {
     NODE_ENV: '"development"'
   },
   defineConstants: {
-    HOST:'http://testssl.microdemo.net/',
+    HOST:'https://testssl.microdemo.net/',
   },
   weapp: {},
   h5: {}

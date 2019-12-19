@@ -148,34 +148,34 @@ export default class Index extends Component {
    } 
   componentWillMount () {
     var a = Math.round(Math.random()*2)
-    console.log(a)
+    // console.log(a)
     if(a == 0) {
-      console.log(0)
+      // console.log(0)
       this.setState({
         canvasColor: '#faf5e4'
       },()=>{
-        console.log(this.state.canvasColor)
+        // console.log(this.state.canvasColor)
       })
     } else if (a == 1) {
-      console.log(1)
+      // console.log(1)
       this.setState({
         canvasColor: '#dbeff6'
       },()=>{
-        console.log(this.state.canvasColor)
+        // console.log(this.state.canvasColor)
       })
     } else if (a == 2) {
-      console.log(2)
+      // console.log(2)
       this.setState({
         canvasColor: '#fbdcdc'
       },()=>{
-        console.log(this.state.canvasColor)
+        // console.log(this.state.canvasColor)
       })
     }
     this.setState({
       type: a
     })
     this.getDetail()
-    console.log(this.state.routerid)
+    // console.log(this.state.routerid)
   }
 
   componentDidMount () {
@@ -200,16 +200,19 @@ export default class Index extends Component {
       loading: true 
      })
     Taro.request({
-      url: `https://testssl.microdemo.net/api/member/as/list?age=${this.state.routerid}`,
-      // url: AGESTORY,
+      // url: `https://testssl.microdemo.net/api/member/as/list?age=${this.state.routerid}`,
+      url: AGESTORY,
       // url: 'https://testssl.microdemo.net/api/member/as/list?age=23',
       data: {
+        age: this.state.routerid
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'cookie': 'PHPSESSID=' + Taro.getStorageSync("sessionId")
       }
     })
       .then((res) => {
+        console.log('code:'+res.data.code)
         console.log(res.data.data)   
         setTimeout(()=>{
           this.setState({
@@ -217,22 +220,18 @@ export default class Index extends Component {
             loading: false
           })
         },2000)
-        // if (res.data.statusCode == 200) {
-        //   // console.log(res)
-        //   this.setState({
-        //     DetailList: res.data.data.lists,
-        //     loading: false
-        //   })
-        // } 
       })
   }
   getAgeImg () {
     Taro.request({
-      url: `https://testssl.microdemo.net/api/member/asi/list?age=${this.state.routerid}`,
+      // url: `https://testssl.microdemo.net/api/member/asi/list?age=${this.state.routerid}`,
+      url: AGEIMG,
       data: {   
+        age: this.state.routerid
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'cookie': 'PHPSESSID=' + Taro.getStorageSync("sessionId")
       }
     })
       .then(res => {
@@ -357,7 +356,7 @@ export default class Index extends Component {
   // 调用绘画 => canvasStatus 置为true、同时设置config
   canvasDrawFunc = (config = this.state.rssConfig) => {
     // console.log('绘画第二')
-    console.log(this.state.rssConfig)
+    // console.log(this.state.rssConfig)
     this.setState({
       canvasStatus: true,
       config: config,
@@ -407,13 +406,13 @@ export default class Index extends Component {
    // 保存图片至本地
   saveToAlbum = () => {
     Taro.getSetting({  complete(){
-      console.log(444)
+      // console.log(444)
     }}).then(res=>{
     if (res.authSetting['scope.writePhotosAlbum']) {
       Taro.saveImageToPhotosAlbum({
         filePath:this.state.shareImage
       }).then(res=>{
-        console.log(res)
+        // console.log(res)
         Taro.showToast({
           title: '保存图片成功',
           icon: 'success',

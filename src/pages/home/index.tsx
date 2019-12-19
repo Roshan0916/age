@@ -16,8 +16,9 @@ import closePng from '@assets/close.png'
 import smilePng from '@assets/smile.png'
 import popPng from '@assets/pop-bg.png'
 import longclosePng from '@assets/long-close.png'
-import { HOMEPARAM,ALLLIST,ADDLIST,LIKES,USER } from '@utils/api'
+import { HOMEPARAM,ALLLIST,ADDLIST,LIKES,USER,CREATEPAY,AGESTORY} from '@utils/api'
 import { AtDrawer,AtFloatLayout,AtInput, AtForm,AtCurtain,AtButton } from 'taro-ui'
+import Request from '@utils/request'
 export default class Index extends Component {
 
   /**
@@ -59,7 +60,10 @@ export default class Index extends Component {
     INDEX:'',
     obj:'',
     member_category:'',
-    current:1
+    current:1,
+    commentAge:'',
+    commentCity:'',
+    commentContent:''
    }
   componentWillMount () {
   }
@@ -78,15 +82,28 @@ export default class Index extends Component {
 
   componentDidHide () { }
   getUser () {
-    Taro.request({
+    Request({
       url: USER,
       data: {   
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'cookie': 'PHPSESSID=' + Taro.getStorageSync("sessionId")
       }
     })
       .then(res => {
+        console.log('code: '+res)
+        // if(res.data.code == -999){
+        //   Taro.showToast({
+        //     title: '登录过期即将重新登录',
+        //     icon: 'none',
+        //     mask: true,
+        //   })
+        //   Taro.clearStorageSync();
+        //   setTimeout(()=>{
+        //     Taro.navigateTo({url:'/pages/shouquan/index'})
+        //   },1500)
+        // }
         this.setState({
           member_category: res.data.data.member_category
         })
@@ -122,29 +139,50 @@ export default class Index extends Component {
       isOpened: true
     })
   }
-  ondetail (res) {
-    console.log(res)
-    if(this.state.member_category == -1) {
-      this.setState({
-        payOpen: true
+
+//获取-99判断弹出
+  getUserAge () {
+    Taro.request({
+      // url: `https://testssl.microdemo.net/api/member/as/list?age=${this.state.ageid}`,
+      url: AGESTORY,
+      data: {
+        age: this.state.ageid
+      },
+      header: {
+        'content-type': 'application/json',
+        'cookie': 'PHPSESSID=' + Taro.getStorageSync("sessionId")
+      }
+    })
+      .then(res => {
+        console.log(res.data.code)  
+        if(res.data.code == -99) {
+          this.setState({
+            payOpen: true
+          })
+        }else{
+          Taro.navigateTo({
+            url:`/pages/result/index?id=${this.state.ageid}`
+          })
+          this.setState({
+            isOpened: false
+          })
+        }
       })
-    }else{
-      Taro.navigateTo({
-        url:`/pages/result/index?id=${res}`
-      })
-      this.setState({
-        isOpened: false
-      })
-    }
   }
 
+  ondetail (res) {
+    console.log(res)
+    this.getUserAge()
+  }
+//获取参数
   getLaw() {
     Taro.request({
       url: HOMEPARAM,
       data: {   
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'cookie': 'PHPSESSID=' + Taro.getStorageSync("sessionId")
       }
     })
       .then(res => {
@@ -222,37 +260,59 @@ export default class Index extends Component {
       againOpen:true
     })
   }
+
+  //添加评论value
   changeInfo(type,e){
     console.log(type,e)
     let mycomment = this.state.mycomment
     mycomment[type]=e.detail.value
+    var commentsThreeList = this.state.mycomment.commentContent.split("#")
     this.setState({
-      mycomment:mycomment
+      mycomment:mycomment,
+      commentAge: parseInt(commentsThreeList[1]),
+      commentCity: commentsThreeList[2] || '',
+      commentContent: commentsThreeList[3] || ''
+    },()=>{
+      console.log(commentsThreeList)
+      console.log(parseInt(commentsThreeList[1]))
+      console.log(this.state.commentCity)
+      console.log(this.state.commentContent)
     })
 }
+
+//添加评论
   addComments () {
     Taro.request({
       url:ADDLIST,
       method:'POST',
+      header: {
+        'content-type': 'application/json',
+        'cookie': 'PHPSESSID=' + Taro.getStorageSync("sessionId")
+      },
       data:{
-        commentContent: this.state.mycomment.commentContent
+        commentContent: this.state.commentContent || '',
+        age: this.state.commentAge || '',
+        city: this.state.commentCity || ''
       }
       }).then(res=>{
-        console.log(this.state.mycomment.commentContent)
         this.setState({
-          mycomment:''
-        })
+          // mycomment:'',    
+        },()=>{})
     })
   }
-
+  //评论列表
   getComments () {
+    Taro.getStorageSync("userInfo")
+    var CommentCity = Taro.getStorageSync("userInfo").province
+    // console.log(CommentCity)
     Taro.request({
       url: ALLLIST,
       data: {   
         page: this.state.current
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'cookie': 'PHPSESSID=' + Taro.getStorageSync("sessionId")
       }
     })
       .then(res => {
@@ -268,13 +328,15 @@ export default class Index extends Component {
         } 
       })
   }
+  //评论列表新
   getCommentsnew () {
     Taro.request({
       url: ALLLIST,
       data: {   
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'cookie': 'PHPSESSID=' + Taro.getStorageSync("sessionId")
       }
     })
       .then(res => {
@@ -283,7 +345,7 @@ export default class Index extends Component {
         },() => {})
       })
   }
-  
+  //点赞
   onZan (e) {
     this.setState({
       commentId: e
@@ -292,6 +354,10 @@ export default class Index extends Component {
     Taro.request({
       url:LIKES,
       method:'POST',
+      header: {
+        'content-type': 'application/json',
+        'cookie': 'PHPSESSID=' + Taro.getStorageSync("sessionId")
+      },
       data:{
         commentId: e
       }
@@ -322,17 +388,63 @@ export default class Index extends Component {
   }
 
   onMaskClick () {
-    console.log(121)
+    console.log('遮罩层')
   }
+  //评论的上拉加载
   onScrollToLower () {
-    console.log('上滑')
+    console.log('上滑加载更多')
     this.setState({
       current: this.state.current + 1
     },()=>{
       this.getComments()
     })
   }
-
+  //创建订单
+  CreatePay () {
+    console.log('创建订单')
+    Taro.request({
+      url: CREATEPAY,
+      method:'POST',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json',
+        'cookie': 'PHPSESSID=' + Taro.getStorageSync("sessionId")
+      }
+    })
+      .then(rsp => {
+        console.log(rsp.statusCode,rsp)
+        if(rsp.statusCode == 200){
+          Taro.requestPayment({
+            timeStamp:rsp.data.timeStamp,
+            nonceStr:rsp.data.nonceStr,
+            package:rsp.data.package,
+            paySign:rsp.data.paySign,
+            signType:'MD5'
+        }).then(ls=>{
+            console.log(ls)
+            Taro.navigateTo({
+              url:`/pages/result/index?id=${this.state.ageid}`
+            })
+            this.setState({
+              show: false,
+              blueshow: false,
+              open: false,
+              isOpened: false,
+              payOpen: false,
+              againOpen: false
+            })
+        }).catch(err=>{
+            console.log(err)
+            Taro.showToast({
+              title: '支付失败，请重试',
+              icon: 'none',
+              duration: 2000
+            })
+        })
+        }
+      })
+  }
   render () {
     const Threshold = 0
     const { moreList,agelist,disabled,minage,maxage,bbs_introduce,agreement,cooperation,prepay_note,pay_confirm_note,mycomment,commentslist} = this.state
@@ -462,7 +574,9 @@ export default class Index extends Component {
                       <Text className="we-number">{item.likes_amount}</Text>
                     </View>
                     <View className="we-bottom">
-                      #30岁#深圳#{item.content}
+                    {item.age == null ? '' : '#'+item.age+'岁'}
+                    {item.city == null ? '' : '#'+item.city}
+                    {item.content == null ? '' : '#'+item.content}
                     </View>
                   </View>
                 </View>
@@ -540,7 +654,7 @@ export default class Index extends Component {
                 <View className="button-circle"></View>
                 <View className="button-colmn"></View>
               </Button>
-              <Button className="button-item3">
+              <Button className="button-item3" onClick={this.CreatePay}>
               马不停蹄
                 <View className="button-circle"></View>
                 <View className="button-colmn"></View>
