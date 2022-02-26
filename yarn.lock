@@ -116,10 +116,31 @@
   resolved "https://registry.npm.taobao.org/@nodelib/fs.stat/download/@nodelib/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha1-K1o6s/kYzKSKjHVMCBaOPwPrphs=
 
+"@tarojs/async-await@^1.3.25":
+  version "1.3.46"
+  resolved "https://registry.yarnpkg.com/@tarojs/async-await/-/async-await-1.3.46.tgz#0aa15cd58800c89b7eb174ea41dba8167b9b1028"
+  integrity sha512-pCzJpyMZoG6nQS5bFUKtS3h9Y3kvXlrrtKPbueG2Ar1Y++JAXyW23wziJSyVmNqtaXJrWsXrtP8dgdwy6KabsA==
+  dependencies:
+    promise-polyfill "^7.1.2"
+    regenerator-runtime "^0.11.1"
+
 "@tarojs/components@1.3.22":
   version "1.3.22"
   resolved "https://registry.npm.taobao.org/@tarojs/components/download/@tarojs/components-1.3.22.tgz#116e4f24d918f961f4898fd7a3bf968ce05a9304"
   integrity sha1-EW5PJNkY+WH0iY/Xo7+WjOBakwQ=
+  dependencies:
+    better-scroll "^1.14.1"
+    classnames "^2.2.5"
+    intersection-observer "^0.7.0"
+    omit.js "^1.0.0"
+    resolve-pathname "^3.0.0"
+    swiper "4.4.2"
+    weui "^1.1.2"
+
+"@tarojs/components@1.3.25":
+  version "1.3.25"
+  resolved "https://registry.yarnpkg.com/@tarojs/components/-/components-1.3.25.tgz#1648a25f8a0aa7624ce23f37e5f3b9828e9b2570"
+  integrity sha512-kbY8EroOqN2KfplETSCXaSV9LWUFSisozP4BJfMBsMOe9357DKMzRQVGldrwYmQzaGHST8FEGkwHwi2RH6jCrQ==
   dependencies:
     better-scroll "^1.14.1"
     classnames "^2.2.5"
@@ -177,6 +198,18 @@
     value-equal "0.4.0"
     warning "4.0.2"
 
+"@tarojs/router@1.3.25":
+  version "1.3.25"
+  resolved "https://registry.yarnpkg.com/@tarojs/router/-/router-1.3.25.tgz#101338d9da181dcd53a9db3566faa1dfb2bdda9f"
+  integrity sha512-YVnAV08Jb+FUcCv7YWch4VrbPQow7Qo0TCwV6kBQKYHlLWdCC96LIjdDZjNgrwMsYt0a5kwg3g37dviGzR0uZA==
+  dependencies:
+    invariant "2.2.4"
+    lodash "4.17.13"
+    resolve-pathname "2.2.0"
+    rollup-plugin-alias "1.4.0"
+    value-equal "0.4.0"
+    warning "4.0.2"
+
 "@tarojs/taro-alipay@1.3.22":
   version "1.3.22"
   resolved "https://registry.npm.taobao.org/@tarojs/taro-alipay/download/@tarojs/taro-alipay-1.3.22.tgz#ae0a6911f597154ff3d0a5643bbd85ce2a8e6051"
@@ -187,10 +220,31 @@
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
+"@tarojs/taro-alipay@1.3.25":
+  version "1.3.25"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro-alipay/-/taro-alipay-1.3.25.tgz#fba70f6b45d7144088f1c2223fbf74da25530f11"
+  integrity sha512-couA8bfmYMbdkmRxb5c8CmWGNTuFD0DLeCjXdT3wvibYR2G6OuB21ypF6dZv9YSyDCATQPTqmGGLbipnuzw2lA==
+  dependencies:
+    "@tarojs/taro" "1.3.25"
+    "@tarojs/utils" "1.3.25"
+    lodash "^4.17.10"
+    prop-types "^15.6.1"
+
 "@tarojs/taro-h5@1.3.22":
   version "1.3.22"
   resolved "https://registry.npm.taobao.org/@tarojs/taro-h5/download/@tarojs/taro-h5-1.3.22.tgz#21d753b08268d02e6ea0ef1dcaecde15f21b1395"
   integrity sha1-IddTsIJo0C5uoO8dyuzeFfIbE5U=
+  dependencies:
+    base64-js "^1.3.0"
+    jsonp-retry "^1.0.3"
+    mobile-detect "^1.4.2"
+    raf "^3.4.1"
+    whatwg-fetch "^2.0.4"
+
+"@tarojs/taro-h5@1.3.25":
+  version "1.3.25"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro-h5/-/taro-h5-1.3.25.tgz#4a4c32852c0b1f673c7d8bf121382fee5d8de31b"
+  integrity sha512-1HFr+a8U2ltfqWC7WTawcVvr05urndaJ08fZxTp+wO6YHFrGINoJGdlE2faIxUwcyz4KP3aO7W6cSwcGAJUx+w==
   dependencies:
     base64-js "^1.3.0"
     jsonp-retry "^1.0.3"
@@ -208,6 +262,16 @@
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
+"@tarojs/taro-qq@1.3.25":
+  version "1.3.25"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro-qq/-/taro-qq-1.3.25.tgz#008bd306c8a4d1d004dba4bfd0471b7f11d29267"
+  integrity sha512-fDllSlIZZhzScJOhumKy4OGqEpumrlYGNzz+6cD9A/1LqWaBcxZYHwZKDvVKi4f7KR0BBkzk99lgAn1mi5I/uA==
+  dependencies:
+    "@tarojs/taro" "1.3.25"
+    "@tarojs/utils" "1.3.25"
+    lodash "^4.17.10"
+    prop-types "^15.6.1"
+
 "@tarojs/taro-quickapp@1.3.22":
   version "1.3.22"
   resolved "https://registry.npm.taobao.org/@tarojs/taro-quickapp/download/@tarojs/taro-quickapp-1.3.22.tgz#ee877f41aa3b7c417a903f14b22f15b837a82534"
@@ -215,6 +279,16 @@
   dependencies:
     "@tarojs/taro" "1.3.22"
     "@tarojs/utils" "1.3.22"
+    lodash "^4.17.10"
+    prop-types "^15.6.1"
+
+"@tarojs/taro-quickapp@1.3.25":
+  version "1.3.25"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro-quickapp/-/taro-quickapp-1.3.25.tgz#30d576281f7ea8921626aa3ffa9697effa6ba73e"
+  integrity sha512-kn3mMoj/C5EsUm++yIy3OE/8UKXLPZEoGDSyocKdntJRUa967GE2to3zAwnkX/UBvRWZaX5eiyHDmwUbWLC40w==
+  dependencies:
+    "@tarojs/taro" "1.3.25"
+    "@tarojs/utils" "1.3.25"
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
@@ -228,6 +302,16 @@
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
+"@tarojs/taro-swan@1.3.25":
+  version "1.3.25"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro-swan/-/taro-swan-1.3.25.tgz#4a9c98f9b4fe2cee724387b558b96d5f71000222"
+  integrity sha512-WADf4HYmJoJJ2Q7GWV4c/C8R61rr9dV1KiZkiQrNR8Y7R/YYo5wfd+YgWgy0oJgRTdJ7j7XXGRcRQPBhOlLP8w==
+  dependencies:
+    "@tarojs/taro" "1.3.25"
+    "@tarojs/utils" "1.3.25"
+    lodash "^4.17.10"
+    prop-types "^15.6.1"
+
 "@tarojs/taro-tt@1.3.22":
   version "1.3.22"
   resolved "https://registry.npm.taobao.org/@tarojs/taro-tt/download/@tarojs/taro-tt-1.3.22.tgz?cache=0&sync_timestamp=1572940020858&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Ftaro-tt%2Fdownload%2F%40tarojs%2Ftaro-tt-1.3.22.tgz#1999788f4b6c6bad972f88b5a1078d085919e4c6"
@@ -235,6 +319,16 @@
   dependencies:
     "@tarojs/taro" "1.3.22"
     "@tarojs/utils" "1.3.22"
+    lodash "^4.17.10"
+    prop-types "^15.6.1"
+
+"@tarojs/taro-tt@1.3.25":
+  version "1.3.25"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro-tt/-/taro-tt-1.3.25.tgz#67a6a33dd440cacbff4d7334f661d422f051366b"
+  integrity sha512-iM5oOsqY68GikmKJ+mPYBR1H+0HZH8LK+ZgEy1JwVKNVKwldf0E1PhcanEffCAaQomGeNvZI3b8sJ3xa2wW1wQ==
+  dependencies:
+    "@tarojs/taro" "1.3.25"
+    "@tarojs/utils" "1.3.25"
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
@@ -248,6 +342,16 @@
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
+"@tarojs/taro-weapp@1.3.25":
+  version "1.3.25"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro-weapp/-/taro-weapp-1.3.25.tgz#a25f82b10e5a62b1be66d9157e547814d6932252"
+  integrity sha512-OLO/3MiaDps7mfvmPpUUNJLHBMr/i8wF2GtF4bHVyT4yh77hUYfwAFq6uPMiiB2uPh++WG9EBOPvw7sAYlHISw==
+  dependencies:
+    "@tarojs/taro" "1.3.25"
+    "@tarojs/utils" "1.3.25"
+    lodash "^4.17.10"
+    prop-types "^15.6.1"
+
 "@tarojs/taro@1.3.22":
   version "1.3.22"
   resolved "https://registry.npm.taobao.org/@tarojs/taro/download/@tarojs/taro-1.3.22.tgz#b953b6405de44e1eddc71b14e27738f88c92b3be"
@@ -255,10 +359,22 @@
   dependencies:
     "@tarojs/utils" "1.3.22"
 
+"@tarojs/taro@1.3.25":
+  version "1.3.25"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro/-/taro-1.3.25.tgz#70fa2ec933da30f08770739478a76a7ecb752358"
+  integrity sha512-DTgS5K9Sz0JZtwQ1nqD7GYRpBxbKioYwzmCEPjuyAhOXY6JDxPyZkbLGfsqSTh86CQgy/hBq6oh1E1of/JBGrw==
+  dependencies:
+    "@tarojs/utils" "1.3.25"
+
 "@tarojs/utils@1.3.22":
   version "1.3.22"
   resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-1.3.22.tgz#38d473fc538a7ad6d7b2eab93eba3552794037d9"
   integrity sha1-ONRz/FOKetbXsuq5Pro1UnlAN9k=
+
+"@tarojs/utils@1.3.25":
+  version "1.3.25"
+  resolved "https://registry.yarnpkg.com/@tarojs/utils/-/utils-1.3.25.tgz#646698f3bb2babed837447617ccec7bd4ee393e3"
+  integrity sha512-c/gpkBdPX94KwPKZRcQMO1FiRlho9r+VxF1StqDseaRUmQTCMcir44Cfw4NYVcMmpjm3YtWIDHWMCTimoMvaPA==
 
 "@tarojs/webpack-runner@1.3.22":
   version "1.3.22"
@@ -6702,6 +6818,11 @@ promise-inflight@^1.0.1:
   resolved "https://registry.npm.taobao.org/promise-inflight/download/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
 
+promise-polyfill@^7.1.2:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-7.1.2.tgz#ab05301d8c28536301622d69227632269a70ca3b"
+  integrity sha512-FuEc12/eKqqoRYIGBrUptCBRhobL19PS2U31vMNTfyck1FxPyMfgsXyW4Mav85y/ZN1hop3hOwRlUDok23oYfQ==
+
 promise@^7.1.1:
   version "7.3.1"
   resolved "https://registry.npm.taobao.org/promise/download/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
@@ -6821,9 +6942,9 @@ querystring@0.2.0:
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
 
 querystringify@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.npm.taobao.org/querystringify/download/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
-  integrity sha1-YOWl/WSn+L+k0qsu1v30yFutFU4=
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.2.0.tgz#3345941b4153cb9d082d8eee4cda2016a9aef7f6"
+  integrity sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==
 
 quick-lru@^1.0.0:
   version "1.1.0"
@@ -7006,7 +7127,7 @@ regenerate@^1.2.1:
   resolved "https://registry.npm.taobao.org/regenerate/download/regenerate-1.4.0.tgz#4a856ec4b56e4077c557589cae85e7a4c8869a11"
   integrity sha1-SoVuxLVuQHfFV1icroXnpMiGmhE=
 
-regenerator-runtime@^0.11.0:
+regenerator-runtime@^0.11.0, regenerator-runtime@^0.11.1:
   version "0.11.1"
   resolved "https://registry.npm.taobao.org/regenerator-runtime/download/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha1-vgWtf5v30i4Fb5cmzuUBf78Z4uk=
@@ -7218,7 +7339,7 @@ require-main-filename@^2.0.0:
 
 requires-port@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.npm.taobao.org/requires-port/download/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+  resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
 resolve-cwd@^2.0.0:
@@ -8208,6 +8329,25 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.3"
 
+taro-plugin-canvas@^1.0.7:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/taro-plugin-canvas/-/taro-plugin-canvas-1.0.10.tgz#916c1802845b0d15b49401660f29d74b707557ae"
+  integrity sha512-WUIH/JvEPM9me7dhg2JR7Wazsyi+/2hbmLkfTQvsYZuBkVeaaaK1aGoxht8rTnwgc20xPL19UBfAL8l7aAwU3w==
+  dependencies:
+    "@tarojs/async-await" "^1.3.25"
+    "@tarojs/components" "1.3.25"
+    "@tarojs/router" "1.3.25"
+    "@tarojs/taro" "1.3.25"
+    "@tarojs/taro-alipay" "1.3.25"
+    "@tarojs/taro-h5" "1.3.25"
+    "@tarojs/taro-qq" "1.3.25"
+    "@tarojs/taro-quickapp" "1.3.25"
+    "@tarojs/taro-swan" "1.3.25"
+    "@tarojs/taro-tt" "1.3.25"
+    "@tarojs/taro-weapp" "1.3.25"
+    nerv-devtools "^1.5.0"
+    nervjs "^1.5.0"
+
 taro-ui@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/taro-ui/-/taro-ui-2.2.4.tgz#96a486432e86d6d0d1eda70383c47c3284f5e8e6"
@@ -8615,9 +8755,9 @@ url-loader@1.1.2:
     schema-utils "^1.0.0"
 
 url-parse@^1.4.3:
-  version "1.4.7"
-  resolved "https://registry.npm.taobao.org/url-parse/download/url-parse-1.4.7.tgz#a8a83535e8c00a316e403a5db4ac1b9b853ae278"
-  integrity sha1-qKg1NejACjFuQDpdtKwbm4U64ng=
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.10.tgz#9d3c2f736c1d75dd3bd2be507dcc111f1e2ea9c1"
+  integrity sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
